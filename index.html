@@ -86,30 +86,18 @@
             border-bottom-color: #ffaa66;
         }
 
-        img {
-            border-radius: 15px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-            max-width: 100%;
-            height: auto;
-        }
-
-        .photo-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-            margin-top: 1.5rem;
-        }
-
-        .cat-card {
-            background: #fff9f0;
-            padding: 1rem;
+        .quote-box {
+            background: #fff3e0;
+            border-left: 8px solid var(--accent-color);
+            padding: 1.8rem;
+            font-style: italic;
+            font-size: 1.25rem;
             border-radius: 12px;
-            text-align: center;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            margin: 1.5rem 0;
         }
 
-        body.dark .cat-card {
-            background: #1e2a5a;
+        body.dark .quote-box {
+            background: #2a2a4a;
         }
 
         .controls {
@@ -133,11 +121,33 @@
             color: white;
             box-shadow: 0 4px 12px rgba(0,0,0,0.25);
             transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
 
         button:hover {
             transform: scale(1.12);
             background: #ffaa66;
+        }
+
+        #sleep-status {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 15px 0;
+            min-height: 60px;
+            padding: 10px;
+            border-radius: 12px;
+        }
+
+        .paw-counter {
+            font-size: 1.1rem;
+            color: #555;
+            margin-top: 10px;
+        }
+
+        body.dark .paw-counter {
+            color: #ccc;
         }
 
         footer {
@@ -146,6 +156,10 @@
             background: var(--accent-color);
             color: white;
             margin-top: 3rem;
+        }
+
+        .paw-icon {
+            font-size: 1.4rem;
         }
     </style>
 </head>
@@ -186,15 +200,15 @@
             <h2>My Best Photos 📸</h2>
             <div class="photo-grid">
                 <div class="cat-card">
-                    <img src="./cat.jpg" alt="Banxy looking cute" width="300">
+                    <img src="cat.jpg" alt="Banxy looking cute" width="300">
                     <p><strong>Nap Queen Mode</strong></p>
                 </div>
                 <div class="cat-card">
-                    <img src="./banxy3.jpg" alt="Banxy playing" width="300">
+                    <img src="banxy3.jpg" alt="Banxy playing" width="300">
                     <p><strong>Zoomies Champion</strong></p>
                 </div>
                 <div class="cat-card">
-                    <img src="./banxy2.jpg" alt="Banxy with toy" width="300">
+                    <img src="banxy2.jpg" alt="Banxy with toy" width="300">
                     <p><strong>Treat Time!</strong></p>
                 </div>
             </div>
@@ -247,7 +261,6 @@
     <audio id="hiss-sound" src="https://www.soundjay.com/buttons/cat-hiss.mp3"></audio>
 
     <script>
-        // (Your existing script - unchanged)
         const body = document.body;
         const toggleBtn = document.getElementById('theme-toggle');
         const meowBtn = document.getElementById('meow-btn');
@@ -265,17 +278,22 @@
 
         let isPurring = false;
 
+        // Dark Mode
         toggleBtn.addEventListener('click', () => {
             body.classList.toggle('dark');
             toggleBtn.textContent = body.classList.contains('dark') ? '☀️' : '🌙';
         });
 
+        // Meow
         meowBtn.addEventListener('click', () => {
             purrSound.pause();
             meowSound.currentTime = 0;
             meowSound.play().catch(() => speechSynthesis.speak(new SpeechSynthesisUtterance("Meow meow!")));
+            meowBtn.style.transform = 'scale(1.4) rotate(12deg)';
+            setTimeout(() => meowBtn.style.transform = 'scale(1) rotate(0)', 300);
         });
 
+        // Purr
         purrBtn.addEventListener('click', () => {
             meowSound.pause();
             if (isPurring) {
@@ -286,30 +304,73 @@
                 purrSound.play().catch(() => speechSynthesis.speak(new SpeechSynthesisUtterance("Purrrrrrrr...")));
                 isPurring = true;
             }
+            purrBtn.style.transform = isPurring ? 'scale(1.25)' : 'scale(1)';
         });
 
+        // Hiss
         hissBtn.addEventListener('click', () => {
             hissSound.currentTime = 0;
             hissSound.play().catch(() => speechSynthesis.speak(new SpeechSynthesisUtterance("Hisssss!")));
+            hissBtn.style.transform = 'scale(1.3)';
+            setTimeout(() => hissBtn.style.transform = 'scale(1)', 200);
         });
 
+        // Sleep Button
         sleepBtn.addEventListener('click', () => {
-            alert(Math.random() < 0.5 ? "😴 Yes, Banxy is sleeping!" : "⚡ No – Banxy is zooming!");
+            let statusDiv = document.getElementById('sleep-status');
+            if (!statusDiv) {
+                statusDiv = document.createElement('div');
+                statusDiv.id = 'sleep-status';
+                sleepBtn.after(statusDiv);
+            }
+
+            const isSleeping = Math.random() < 0.5;
+            statusDiv.innerHTML = isSleeping
+                ? '😴 <strong>Yes, Banxy is sleeping!</strong>'
+                : '⚡ <strong>No – Banxy is zooming!</strong>';
+            statusDiv.style.color = isSleeping ? '#4a90e2' : '#e74c3c';
+
+            setTimeout(() => { if (statusDiv) statusDiv.innerHTML = ''; }, 4000);
         });
 
-        const quotes = ["The best beds are the ones warm from the sun. — Banxy", "If I fit, I sit. — Banxy", "Treats are love. — Banxy"];
-        quoteBtn.addEventListener('click', () => {
-            document.getElementById('quote-box').innerHTML = `"${quotes[Math.floor(Math.random()*quotes.length)]}"`;
-        });
+        // Daily Quote
+        const quotes = [
+            "The best beds are the ones that are warm from the sun. — Banxy",
+            "If I fit, I sit. If I don't fit... I still sit. — Banxy",
+            "Humans exist to open doors and provide treats. — Banxy",
+            "Zoomies at 3 AM are a public service. — Banxy",
+            "A clean window is a wasted opportunity for nose prints. — Banxy",
+            "Nap first, ask questions later. — Banxy",
+            "The laser dot is my eternal enemy... and my greatest love. — Banxy",
+            "Rotterdam has many boats, but none are as majestic as me. — Banxy",
+            "Treats are love. Treats are life. — Banxy",
+            "I don't always meow... but when I do, it's at 4 AM. — Banxy"
+        ];
 
-        // Visitor counter
-        let count = parseInt(localStorage.getItem('banxyCount') || 0) + 1;
-        localStorage.setItem('banxyCount', count);
-        visitorCountEl.textContent = count;
+        function getNewQuote() {
+            const randomIndex = Math.floor(Math.random() * quotes.length);
+            document.getElementById('quote-box').innerHTML = `"${quotes[randomIndex]}"`;
+        }
 
-        // Navigation with correct base path
-        weatherBtn.addEventListener('click', () => window.location.href = "./page2.html");
-        outsideBtn.addEventListener('click', () => window.location.href = "./page3.html");
+        quoteBtn.addEventListener('click', getNewQuote);
+
+        // Visitor Paw Print Counter
+        function updateVisitorCount() {
+            let count = localStorage.getItem('banxyVisitorCount') || 0;
+            count = parseInt(count) + 1;
+            localStorage.setItem('banxyVisitorCount', count);
+            visitorCountEl.textContent = count;
+        }
+
+        // Navigation
+        weatherBtn.addEventListener('click', () => window.location.href = "page2.html");
+        outsideBtn.addEventListener('click', () => window.location.href = "page3.html");
+
+        // Initialize everything
+        window.onload = () => {
+            getNewQuote();
+            updateVisitorCount();
+        };
     </script>
 
 </body>
