@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banxy the Cat 🐱</title>
+    <style>
+        :root {
+            --bg-color: #fff8f0;
+            --text-color: #333;
+            --accent-color: #ff8c42;
+            --card-bg: white;
+        }
+
+        body.dark {
+            --bg-color: #1a1a2e;
+            --text-color: #e0e0e0;
+            --accent-color: #ffaa66;
+            --card-bg: #16213e;
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            transition: background 0.4s, color 0.4s;
+        }
+
+        header {
+            background: var(--accent-color);
+            color: white;
+            text-align: center;
+            padding: 2rem 1rem;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+
+        h1 { margin: 0; font-size: 3rem; }
+
+        .subtitle {
+            font-size: 1.4rem;
+            margin-top: 0.5rem;
+            opacity: 0.9;
+        }
+
+        nav {
+            background: #ffaa66;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        body.dark nav {
+            background: #0f3460;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 1.5rem;
+            font-weight: bold;
+        }
+
+        main {
+            max-width: 1000px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        section {
+            background: var(--card-bg);
+            margin-bottom: 2rem;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            color: var(--accent-color);
+            border-bottom: 3px solid #ffcc99;
+            padding-bottom: 10px;
+        }
+
+        body.dark h2 {
+            border-bottom-color: #ffaa66;
+        }
+
+        .quote-box {
+            background: #fff3e0;
+            border-left: 8px solid var(--accent-color);
+            padding: 1.8rem;
+            font-style: italic;
+            font-size: 1.25rem;
+            border-radius: 12px;
+            margin: 1.5rem 0;
+        }
+
+        body.dark .quote-box {
+            background: #2a2a4a;
+        }
+
+        .controls {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            gap: 10px;
+            z-index: 100;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+        }
+
+        button {
+            padding: 12px 18px;
+            font-size: 1.15rem;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            background: #ff8c42;
+            color: white;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        button:hover {
+            transform: scale(1.12);
+            background: #ffaa66;
+        }
+
+        #sleep-status {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 15px 0;
+            min-height: 60px;
+            padding: 10px;
+            border-radius: 12px;
+        }
+
+        .paw-counter {
+            font-size: 1.1rem;
+            color: #555;
+            margin-top: 10px;
+        }
+
+        body.dark .paw-counter {
+            color: #ccc;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2.5rem 1rem;
+            background: var(--accent-color);
+            color: white;
+            margin-top: 3rem;
+        }
+
+        .paw-icon {
+            font-size: 1.4rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="controls">
+        <button id="theme-toggle" title="Toggle Dark Mode">🌙</button>
+        <button id="meow-btn" title="Meow!">🐱 Meow!</button>
+        <button id="purr-btn" title="Purr!">🐾 Purr!</button>
+        <button id="hiss-btn" title="Hiss!">😾 Hiss!</button>
+        <button id="sleep-btn" title="Is Banxy Sleeping?">😴 Is Banxy Sleeping?</button>
+        <button id="quote-btn" title="New Quote">💭 New Quote</button>
+        <button id="weather-btn" title="Weather in Rotterdam">🌤️ Weather</button>
+        <button id="outside-btn" title="Outside Adventures">🌳 Outside Adventures</button>
+    </div>
+
+    <header>
+        <h1>🐱 Banxy the Cat</h1>
+        <p class="subtitle">The cutest nap champion in Rotterdam</p>
+    </header>
+
+    <nav>
+        <a href="#about">About Me</a>
+        <a href="#photos">My Photos</a>
+        <a href="#favorites">Favorites</a>
+        <a href="#facts">Fun Facts</a>
+    </nav>
+
+    <main>
+
+        <section id="about">
+            <h2>About Banxy</h2>
+            <p><strong>Hello hoomans!</strong> My name is Banxy and I'm a fluffy, sassy, and extremely adorable cat living in Rotterdam.</p>
+            <p>I love long naps in sunbeams, chasing laser pointers, and demanding treats at 3 AM.</p>
+        </section>
+
+        <section id="photos">
+            <h2>My Best Photos 📸</h2>
+            <div class="photo-grid">
+                <div class="cat-card">
+                    <img src="cat.jpg" alt="Banxy looking cute" width="300">
+                    <p><strong>Nap Queen Mode</strong></p>
+                </div>
+                <div class="cat-card">
+                    <img src="banxy3.jpg" alt="Banxy playing" width="300">
+                    <p><strong>Zoomies Champion</strong></p>
+                </div>
+                <div class="cat-card">
+                    <img src="banxy2.jpg" alt="Banxy with toy" width="300">
+                    <p><strong>Treat Time!</strong></p>
+                </div>
+            </div>
+        </section>
+
+        <section id="favorites">
+            <h2>Banxy's Favorite Things</h2>
+            <ul>
+                <li>🌞 Sleeping in warm sunbeams</li>
+                <li>🐟 Eating tuna and fancy treats</li>
+                <li>🧶 Playing with yarn and feather toys</li>
+                <li>📦 Hiding in cardboard boxes</li>
+                <li>🛏 Stealing my human's pillow</li>
+                <li>🐦 Watching boats and birds from the window</li>
+            </ul>
+        </section>
+
+        <section id="quote-section">
+            <h2>💭 Banxy's Daily Wisdom</h2>
+            <div id="quote-box" class="quote-box">
+                Loading Banxy's wisdom...
+            </div>
+            <button id="quote-btn" style="width: auto; margin: 10px auto; display: block;">
+                💭 New Quote
+            </button>
+        </section>
+
+        <section id="facts">
+            <h2>Fun Facts About Me</h2>
+            <div class="fun-fact">
+                I can jump almost 5 feet high! That's like a human jumping over a canal 🚀
+            </div>
+            <p>I also have a secret talent: opening doors. My humans are never safe.</p>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>Made with ❤️ and lots of cat hair for <strong>Banxy</strong> in Rotterdam</p>
+        <div class="paw-counter">
+            <span class="paw-icon">🐾</span>
+            <span id="visitor-count">0</span> hoomans have visited Banxy today
+        </div>
+        <p style="margin-top: 10px; opacity: 0.9;">© 2026 Banxy's Official Website</p>
+    </footer>
+
+    <!-- Audio -->
+    <audio id="meow-sound" src="https://www.soundjay.com/buttons/meow-1.mp3"></audio>
+    <audio id="purr-sound" loop src="https://www.chosic.com/wp-content/uploads/2024/06/Cat-Purr.mp3"></audio>
+    <audio id="hiss-sound" src="https://www.soundjay.com/buttons/cat-hiss.mp3"></audio>
+
+    <script>
+        const body = document.body;
+        const toggleBtn = document.getElementById('theme-toggle');
+        const meowBtn = document.getElementById('meow-btn');
+        const purrBtn = document.getElementById('purr-btn');
+        const hissBtn = document.getElementById('hiss-btn');
+        const sleepBtn = document.getElementById('sleep-btn');
+        const quoteBtn = document.getElementById('quote-btn');
+        const weatherBtn = document.getElementById('weather-btn');
+        const outsideBtn = document.getElementById('outside-btn');
+
+        const meowSound = document.getElementById('meow-sound');
+        const purrSound = document.getElementById('purr-sound');
+        const hissSound = document.getElementById('hiss-sound');
+        const visitorCountEl = document.getElementById('visitor-count');
+
+        let isPurring = false;
+
+        // Dark Mode
+        toggleBtn.addEventListener('click', () => {
+            body.classList.toggle('dark');
+            toggleBtn.textContent = body.classList.contains('dark') ? '☀️' : '🌙';
+        });
+
+        // Meow
+        meowBtn.addEventListener('click', () => {
+            purrSound.pause();
+            meowSound.currentTime = 0;
+            meowSound.play().catch(() => speechSynthesis.speak(new SpeechSynthesisUtterance("Meow meow!")));
+            meowBtn.style.transform = 'scale(1.4) rotate(12deg)';
+            setTimeout(() => meowBtn.style.transform = 'scale(1) rotate(0)', 300);
+        });
+
+        // Purr
+        purrBtn.addEventListener('click', () => {
+            meowSound.pause();
+            if (isPurring) {
+                purrSound.pause();
+                isPurring = false;
+            } else {
+                purrSound.currentTime = 0;
+                purrSound.play().catch(() => speechSynthesis.speak(new SpeechSynthesisUtterance("Purrrrrrrr...")));
+                isPurring = true;
+            }
+            purrBtn.style.transform = isPurring ? 'scale(1.25)' : 'scale(1)';
+        });
+
+        // Hiss
+        hissBtn.addEventListener('click', () => {
+            hissSound.currentTime = 0;
+            hissSound.play().catch(() => speechSynthesis.speak(new SpeechSynthesisUtterance("Hisssss!")));
+            hissBtn.style.transform = 'scale(1.3)';
+            setTimeout(() => hissBtn.style.transform = 'scale(1)', 200);
+        });
+
+        // Sleep Button
+        sleepBtn.addEventListener('click', () => {
+            let statusDiv = document.getElementById('sleep-status');
+            if (!statusDiv) {
+                statusDiv = document.createElement('div');
+                statusDiv.id = 'sleep-status';
+                sleepBtn.after(statusDiv);
+            }
+
+            const isSleeping = Math.random() < 0.5;
+            statusDiv.innerHTML = isSleeping
+                ? '😴 <strong>Yes, Banxy is sleeping!</strong>'
+                : '⚡ <strong>No – Banxy is zooming!</strong>';
+            statusDiv.style.color = isSleeping ? '#4a90e2' : '#e74c3c';
+
+            setTimeout(() => { if (statusDiv) statusDiv.innerHTML = ''; }, 4000);
+        });
+
+        // Daily Quote
+        const quotes = [
+            "The best beds are the ones that are warm from the sun. — Banxy",
+            "If I fit, I sit. If I don't fit... I still sit. — Banxy",
+            "Humans exist to open doors and provide treats. — Banxy",
+            "Zoomies at 3 AM are a public service. — Banxy",
+            "A clean window is a wasted opportunity for nose prints. — Banxy",
+            "Nap first, ask questions later. — Banxy",
+            "The laser dot is my eternal enemy... and my greatest love. — Banxy",
+            "Rotterdam has many boats, but none are as majestic as me. — Banxy",
+            "Treats are love. Treats are life. — Banxy",
+            "I don't always meow... but when I do, it's at 4 AM. — Banxy"
+        ];
+
+        function getNewQuote() {
+            const randomIndex = Math.floor(Math.random() * quotes.length);
+            document.getElementById('quote-box').innerHTML = `"${quotes[randomIndex]}"`;
+        }
+
+        quoteBtn.addEventListener('click', getNewQuote);
+
+        // Visitor Paw Print Counter
+        function updateVisitorCount() {
+            let count = localStorage.getItem('banxyVisitorCount') || 0;
+            count = parseInt(count) + 1;
+            localStorage.setItem('banxyVisitorCount', count);
+            visitorCountEl.textContent = count;
+        }
+
+        // Navigation
+        weatherBtn.addEventListener('click', () => window.location.href = "page2.html");
+        outsideBtn.addEventListener('click', () => window.location.href = "page3.html");
+
+        // Initialize everything
+        window.onload = () => {
+            getNewQuote();
+            updateVisitorCount();
+        };
+    </script>
+
+</body>
+</html>

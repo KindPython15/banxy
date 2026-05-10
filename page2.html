@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banxy's Weather - Rotterdam 🐱🌤️</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom, #a0d8ff, #e0f0ff);
+            color: #333;
+            text-align: center;
+            min-height: 100vh;
+        }
+
+        .dark body {
+            background: linear-gradient(to bottom, #1a2a4a, #0f1e3a);
+            color: #ddd;
+        }
+
+        header {
+            background: #ff8c42;
+            color: white;
+            padding: 2rem;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 2.8rem;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 3rem auto;
+            padding: 2rem;
+        }
+
+        .weather-box {
+            background: white;
+            border-radius: 20px;
+            padding: 3rem 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            font-size: 1.4rem;
+        }
+
+        .dark .weather-box {
+            background: #16213e;
+        }
+
+        .location {
+            font-size: 1.6rem;
+            color: #ff8c42;
+            margin: 1rem 0;
+            font-weight: bold;
+        }
+
+        .dark .location {
+            color: #ffaa66;
+        }
+
+        .temp {
+            font-size: 5.5rem;
+            margin: 1rem 0;
+            line-height: 1;
+        }
+
+        button {
+            margin-top: 2rem;
+            padding: 14px 28px;
+            font-size: 1.3rem;
+            background: #ff8c42;
+            color: white;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #ffaa66;
+            transform: scale(1.08);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>🐱 Banxy's Weather Forecast</h1>
+        <p>Reporting live from our home in Rotterdam!</p>
+    </header>
+
+    <div class="container">
+        <div class="weather-box">
+            <div class="location">📍 Rotterdam, Netherlands</div>
+
+            <h2>Today's Weather for Banxy</h2>
+
+            <div class="temp">☀️ 18°C</div>
+
+            <p><strong>Sunny with a light breeze</strong></p>
+            <p>Perfect weather for napping in the window sill and watching the boats on the Maas river!</p>
+
+            <p style="margin-top: 2.5rem; font-style: italic; font-size: 1.2rem;">
+                Banxy's expert opinion: "If it's sunny like today, I demand maximum sunbeam time.
+                If it rains, I demand extra treats and blanket fort privileges."
+            </p>
+        </div>
+
+        <button onclick="window.location.href='index.html'">← Back to Banxy's Main Page</button>
+    </div>
+
+</body>
+</html>

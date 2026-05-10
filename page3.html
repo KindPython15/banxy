@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banxy's Outside Adventures 🐱🌳</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom, #c8e6c9, #e8f5e9);
+            color: #333;
+            text-align: center;
+            min-height: 100vh;
+        }
+
+        .dark body {
+            background: linear-gradient(to bottom, #1a2e1f, #0f1f14);
+            color: #ddd;
+        }
+
+        header {
+            background: #4caf50;
+            color: white;
+            padding: 2.5rem 1rem;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 2.9rem;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 3rem auto;
+            padding: 0 1.5rem;
+        }
+
+        .adventure-box {
+            background: white;
+            border-radius: 20px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .dark .adventure-box {
+            background: #1e3a2e;
+        }
+
+        .video-container {
+            margin: 2rem 0;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        video {
+            width: 100%;
+            max-width: 800px;
+            border-radius: 12px;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .emoji {
+            font-size: 4rem;
+            margin: 1rem 0;
+        }
+
+        button {
+            margin-top: 1.5rem;
+            padding: 14px 30px;
+            font-size: 1.3rem;
+            background: #4caf50;
+            color: white;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #66bb6a;
+            transform: scale(1.08);
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            background: #f1f8e9;
+            margin: 12px 0;
+            padding: 15px;
+            border-radius: 12px;
+            font-size: 1.15rem;
+        }
+
+        .dark li {
+            background: #2a4a3a;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>🐱 Banxy's Outside Adventures</h1>
+        <p>Exploring the beautiful streets, parks and canals of Rotterdam</p>
+    </header>
+
+    <div class="container">
+
+        <div class="adventure-box">
+            <div class="emoji">🌳</div>
+            <h2>My Favorite Outdoor Activities</h2>
+            <ul>
+                <li>Chasing birds and butterflies in the park</li>
+                <li>Walking along the Maas river and watching the boats</li>
+                <li>Sniffing all the flowers and tulips in spring</li>
+                <li>Climbing trees (when my human lets me)</li>
+                <li>Zoomies on the grass after it rains</li>
+                <li>Watching ducks and swans at the pond</li>
+            </ul>
+        </div>
+
+        <!-- Video Section with your file -->
+        <div class="adventure-box">
+            <div class="emoji">🎥</div>
+            <h2>Banxy Walking Outside in Rotterdam</h2>
+            <p>Watch me explore the outside world!</p>
+
+            <div class="video-container">
+                <video controls autoplay muted loop>
+                    <source src="Banksy_outside.mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </div>
+
+        <div class="adventure-box">
+            <div class="emoji">🚲</div>
+            <h2>Typical Day Outside</h2>
+            <p>I love going on supervised walks with my harness. Rotterdam has so many green spots and nice paths!</p>
+            <p>My favorite places are the parks near the Erasmus Bridge and the little gardens by the canals.</p>
+        </div>
+
+        <div class="adventure-box">
+            <div class="emoji">🐦</div>
+            <h2>Banxy's Outdoor Rules</h2>
+            <p>1. Always chase anything that moves<br>
+               2. Never go too far from my human<br>
+               3. If I see a pigeon, I must attempt takeoff<br>
+               4. Sunbeams on the grass are better than indoors</p>
+        </div>
+
+    </div>
+
+    <button onclick="window.location.href='index.html'">← Back to Banxy's Home</button>
+
+</body>
+</html>
